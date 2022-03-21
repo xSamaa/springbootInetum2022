@@ -4,11 +4,11 @@ import java.util.List;
 
 public abstract class PiedraPapelTijeraFactory {
 
-	final int PIEDRA = 1;
+	final static int PIEDRA = 1;
 	
-	final int PAPEL = 2;
+	final static int PAPEL = 2;
 	
-	final int TIJERA = 3;
+	final static int TIJERA = 3;
 	
 	protected String descripcionResultado;
 	
