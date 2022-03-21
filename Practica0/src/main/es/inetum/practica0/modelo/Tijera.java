@@ -1,4 +1,4 @@
-package es.inetum.practica0.modelo;
+package main.es.inetum.practica0.modelo;
 
 public class Tijera extends PiedraPapelTijeraFactory{
 
@@ -23,17 +23,17 @@ public class Tijera extends PiedraPapelTijeraFactory{
 		switch (piedraPapelTijeraFactory.getNumero()) {
 		
 			case PAPEL:
-				resul=1;
+				resul = 1;
 				this.descripcionResultado = "Tijera le gana a " + piedraPapelTijeraFactory.getNombre();
 				break;
 				
 	        case PIEDRA:
-				resul=-1;
+				resul = -1;
 				this.descripcionResultado = "Tijera pierdió con " + piedraPapelTijeraFactory.getNombre();
 				break;
 	
 			default:
-				resul=0;
+				resul = 0;
 				this.descripcionResultado = "Tijera empata con " + piedraPapelTijeraFactory.getNombre();
 				break;
 			}
