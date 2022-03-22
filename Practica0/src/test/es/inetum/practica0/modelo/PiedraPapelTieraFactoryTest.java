@@ -27,7 +27,7 @@ public class PiedraPapelTieraFactoryTest {
 	
 //	@AfterEach
 	void tearDown() {
-		
+			
 		piedra = null;
 		papel = null;
 		tijera = null;
