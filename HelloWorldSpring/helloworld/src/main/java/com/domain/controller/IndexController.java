@@ -35,5 +35,20 @@ public class IndexController {
 		
 		return "listado";
 	}
+	
+	@RequestMapping("/juego")
+	public String goJuego(Model model) {
+		
+		List<String> opciones = new ArrayList<String>();
+		
+		opciones.add("piedra");
+		opciones.add("papel");
+		opciones.add("tijera");
+		
+		model.addAttribute("opciones", opciones);
+		
+		return "juego";
+	}
+	
 
 }
