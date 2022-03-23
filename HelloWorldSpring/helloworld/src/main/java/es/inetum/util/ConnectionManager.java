@@ -9,7 +9,7 @@ public class ConnectionManager {
 	
 	public static void  conectar() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/alten", "sistema", "sistema");
+		connection = DriverManager.getConnection("jdbc:mysql://172.26.55.90:3306/inetum", "root", "1234567890");
 	}
 
 	public static void desconectar() throws SQLException {
