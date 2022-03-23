@@ -5,7 +5,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import main.es.inetum.practica0.modelo.PiedraPapelTijeraFactory;
 
 @Controller
 public class IndexController {
@@ -36,18 +40,35 @@ public class IndexController {
 		return "listado";
 	}
 	
-	@RequestMapping("/juego")
-	public String goJuego(Model model) {
+	@RequestMapping("/juego/{nombre}")
+	public String goJuego(@PathVariable("nombre") String nombre, Model model) {
 		
-		List<String> opciones = new ArrayList<String>();
+		List<PiedraPapelTijeraFactory> eleccion = new ArrayList<PiedraPapelTijeraFactory>();
 		
-		opciones.add("piedra");
-		opciones.add("papel");
-		opciones.add("tijera");
+		eleccion.add(PiedraPapelTijeraFactory.getInstance(1));
+		eleccion.add(PiedraPapelTijeraFactory.getInstance(2));
+		eleccion.add(PiedraPapelTijeraFactory.getInstance(3));
 		
-		model.addAttribute("opciones", opciones);
+		model.addAttribute("opciones", eleccion);
 		
 		return "juego";
+	}
+	
+	@RequestMapping("/resultado")
+	public String goResultado(@RequestParam String selPPT, Model model) {
+				
+		System.out.println("SELECCIONADA");
+		System.out.println(selPPT);
+		
+		PiedraPapelTijeraFactory pptPlayer = PiedraPapelTijeraFactory.getInstance(Integer.parseInt(selPPT));
+		PiedraPapelTijeraFactory pptPC = PiedraPapelTijeraFactory.getInstance((int)(Math.random()*100%3+1));
+		
+		pptPlayer.comparar(pptPC);
+		
+		model.addAttribute("pptPlayer", pptPlayer);
+		model.addAttribute("pptPC", pptPC);
+		
+		return "resultado";
 	}
 	
 
