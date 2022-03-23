@@ -1,4 +1,4 @@
-package com.domain.controller;
+package es.inetum.controller;
 
 import java.util.ArrayList;
 import java.util.List;
