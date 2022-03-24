@@ -1,5 +1,6 @@
 package es.inetum.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import main.es.inetum.practica0.modelo.PiedraPapelTijeraFactory;
+import es.inetum.juego.modelo.PiedraPapelTijeraFactory;
+import es.inetum.modelo.Alumno;
+import es.inetum.modelo.dao.AlumnoDAO;
+import es.inetum.modelo.dao.DAO;
+
 
 @Controller
 public class IndexController {
@@ -36,6 +41,23 @@ public class IndexController {
 		model.addAttribute("titulo", "Listado de alumnos");
 		model.addAttribute("profesor", "Gabriel Casas");
 		model.addAttribute("alumnos", alumnos);
+		
+		Alumno alumn = new Alumno();
+		List<es.inetum.modelo.Model> alumnoss = null;	
+		DAO aluDao = new AlumnoDAO();
+		try {
+			alumnoss = aluDao.leer(alumn);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("titulo", "Lista de alumnos");
+		model.addAttribute("alumnoss", alumnoss);
+		
 		
 		return "listado";
 	}

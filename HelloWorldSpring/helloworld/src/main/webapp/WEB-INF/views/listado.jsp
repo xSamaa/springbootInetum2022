@@ -9,15 +9,22 @@ pageEncoding="ISO-8859-1"%>
 <title>${titulo}</title>
 </head>
 	<body>
-	
-		<h1>Profesor ${profesor}</h1>
-		
-		<ul>
-			<c:forEach items="${alumnos}" var="alumno">
-				<li> <c:out value="${alumno}"/> </li>
+		<div class="container">
+		<h2>Lista de alumnos</h2>
+		<table class="table table-bordered">
+			<tr>
+			<th>Codigo</th><th>Nombre</th><th>Apellido</th><th>Repo</th>
+			</tr>
+			<c:forEach items="${alumnoss}" var="alumno">
+				<tr>
+					<td><c:out value="${alumno.getCodigo()}"/>  </td>
+					<td><c:out value="${alumno.getNombre()}"/>  </td>
+					<td><c:out value="${alumno.getApellido()}"/></td>
+					<td><c:out value="${alumno.getLinkArepositorio()}"/></td> 
+				</tr>
 			</c:forEach>
-		</ul>
-		
-		
-	</body>
+		</table>
+	
+	</div>
+</body>
 </html>
