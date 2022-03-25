@@ -1,13 +1,14 @@
-package es.demoJulio;
+package es.julio.inetum.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class DemoWebJulioApplication {
+public class DemoWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoWebJulioApplication.class, args);
+		SpringApplication.run(DemoWebApplication.class, args);
 	}
 
 }
